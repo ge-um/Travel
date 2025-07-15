@@ -29,7 +29,7 @@ extension UIColor {
 
 extension UIColor {
     static var paleBlue: UIColor {
-        .init(hex: "#B8E7FF")
+        .init(hex: "#719FFF")
     }
     
     static var paleGreen: UIColor {

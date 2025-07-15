@@ -13,6 +13,7 @@ class TravelDetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         registerNib()
     }
     
@@ -65,6 +66,7 @@ class TravelDetailTableViewController: UITableViewController {
         } else {
             let touristAttractionViewController = storyboard.instantiateViewController(identifier: "TouristAttractionViewController") as! TouristAttractionViewController
             
+            touristAttractionViewController.travel = travel
             navigationController?.pushViewController(touristAttractionViewController, animated: true)
         }
     }
