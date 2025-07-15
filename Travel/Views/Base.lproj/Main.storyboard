@@ -104,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tue-du-8hL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2442" y="973"/>
+            <point key="canvasLocation" x="2389" y="316"/>
         </scene>
         <!--Ad View Controller-->
         <scene sceneID="5kf-tL-qYG">
@@ -149,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kJj-mg-J81" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3368.7022900763359" y="1674.6478873239437"/>
+            <point key="canvasLocation" x="2389" y="973"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GzG-Ai-leH">
@@ -191,6 +191,9 @@
                                         <segment title="국내"/>
                                         <segment title="해외"/>
                                     </segments>
+                                    <connections>
+                                        <action selector="segmentedControlValueChanged:" destination="2bS-7v-PbQ" eventType="valueChanged" id="C4i-CD-oqd"/>
+                                    </connections>
                                 </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -220,10 +223,13 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="인기 도시" id="fFH-VK-HUo"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="locationSegmentedControl" destination="Qgg-A1-M5V" id="uNP-ZF-6JH"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JOa-2R-032" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1652.6717557251907" y="1692.9577464788733"/>
+            <point key="canvasLocation" x="1563" y="1693"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="jBy-7v-dC5">

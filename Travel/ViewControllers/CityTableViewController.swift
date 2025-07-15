@@ -8,12 +8,17 @@
 import UIKit
 
 class CityTableViewController: UITableViewController {
+    @IBOutlet var locationSegmentedControl: UISegmentedControl!
+    
     let cities = CityInfo.city
+    var filteredCities: [City] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNib()
         configure()
+        
+        filteredCities = cities
     }
 
     func registerNib() {
@@ -24,12 +29,12 @@ class CityTableViewController: UITableViewController {
     // MARK: - TableView Setting
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cities.count
+        return filteredCities.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CityTableViewCell", for: indexPath) as! CityTableViewCell
-        let city = cities[indexPath.row]
+        let city = filteredCities[indexPath.row]
         
         cell.configure(city: city)
         
@@ -53,5 +58,16 @@ class CityTableViewController: UITableViewController {
         
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationItem.title = "관광지 화면"
+    }
+    
+    @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0: filteredCities = cities
+        case 1: filteredCities = cities.filter { $0.domestic_travel }
+        case 2: filteredCities = cities.filter { !$0.domestic_travel }
+        default: break
+        }
+        
+        tableView.reloadData()
     }
 }
