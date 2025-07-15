@@ -17,9 +17,10 @@ class CityTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
+    
+    // TODO: - background color clip하기
     override func layoutSubviews() {
         super.layoutSubviews()
-        #warning("background color clip이 제대로 되지 않음.")
         cityImageView.roundCorners(corners: [.topLeft, .bottomRight], radius: 30)
     }
     
