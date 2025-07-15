@@ -23,7 +23,48 @@ class TravelDetailTableViewController: UITableViewController {
         tableView.register(adNibName, forCellReuseIdentifier: "ad")
         tableView.register(travelDetailNibName, forCellReuseIdentifier: "travel")
     }
+    
+    
+    // MARK: - TableView Setting
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return travel.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let travel = travel[indexPath.row]
+        
+        if travel.ad {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ad", for: indexPath) as! AdTableViewCell
+            configureTitleLabel(cell: cell, travel: travel)
+            return cell
 
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "travel", for: indexPath) as! TravelDetailTableViewCell
+            
+            configureCityImageView(cell: cell, travel: travel)
+            configureTitleLabel(cell: cell, travel: travel)
+            configureDescriptionLabel(cell: cell, travel: travel)
+            configureInfoLabel(cell: cell, travel: travel)
+            configureLikeButton(cell: cell, indexPath: indexPath)
+            
+            return cell
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let travel = travel[indexPath.row]
+        
+        if travel.ad {
+            let adViewController = storyboard.instantiateViewController(identifier: "AdViewController") as! AdViewController
+            present(adViewController, animated: true)
+        } else {
+            let touristAttractionViewController = storyboard.instantiateViewController(identifier: "TouristAttractionViewController") as! TouristAttractionViewController
+            navigationController?.pushViewController(touristAttractionViewController, animated: true)
+        }
+    }
+
+    // MARK: - View Configure
     func configureCityImageView(cell: TravelDetailTableViewCell, travel: Travel) {
         let url = URL(string: travel.travel_image ?? "")
         
@@ -77,38 +118,6 @@ class TravelDetailTableViewController: UITableViewController {
         cell.titleLabel.text = travel.title
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return travel.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let travel = travel[indexPath.row]
-        
-        if travel.ad {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ad", for: indexPath) as! AdTableViewCell
-            configureTitleLabel(cell: cell, travel: travel)
-            return cell
-
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "travel", for: indexPath) as! TravelDetailTableViewCell
-            
-            configureCityImageView(cell: cell, travel: travel)
-configureTitleLabel(cell: cell, travel: travel)
-            configureDescriptionLabel(cell: cell, travel: travel)
-            configureInfoLabel(cell: cell, travel: travel)
-            configureLikeButton(cell: cell, indexPath: indexPath)
-            
-            return cell
-        }
-
-    }
-    
-    @objc func likeButtonTapped(sender: UIButton) {
-        let index = sender.tag
-        travel[index].like?.toggle()
-        tableView.reloadData()
-    }
-    
     func convertGradeToStars(_ rating: Double) -> String {
         let filledCount = Int(rating)
         return String(repeating: "★", count: filledCount) + String(repeating: "☆", count: 5-filledCount)
@@ -127,5 +136,12 @@ configureTitleLabel(cell: cell, travel: travel)
         attributedText.addAttribute(.foregroundColor, value: UIColor.systemYellow, range: starRange)
         
         return attributedText
+    }
+    
+    //MARK: - Action
+    @objc func likeButtonTapped(sender: UIButton) {
+        let index = sender.tag
+        travel[index].like?.toggle()
+        tableView.reloadData()
     }
 }
