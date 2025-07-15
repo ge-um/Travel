@@ -17,7 +17,6 @@ class CityTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    
     // TODO: - background color clip하기
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -30,6 +29,7 @@ class CityTableViewCell: UITableViewCell {
         configureCityExplainLabel(explain: city.city_explain)
     }
     
+    // TODO: - Kingfisher Downsizing 찾아보기
     func configureCityImageView(image: String) {
         let url = URL(string: image)
         cityImageView.kf.setImage(with: url)

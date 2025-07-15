@@ -8,6 +8,7 @@
 import Kingfisher
 import UIKit
 
+// TODO: - Need Recatoring
 class TravelDetailTableViewController: UITableViewController {
     var travel = TravelInfo.travel
     
