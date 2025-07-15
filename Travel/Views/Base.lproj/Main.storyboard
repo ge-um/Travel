@@ -63,7 +63,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tue-du-8hL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2418" y="973"/>
+            <point key="canvasLocation" x="3170" y="973"/>
         </scene>
         <!--Ad View Controller-->
         <scene sceneID="5kf-tL-qYG">
@@ -73,30 +73,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="광고 화면" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36C-mE-tur">
-                                <rect key="frame" x="164" y="416" width="64" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36C-mE-tur">
+                                <rect key="frame" x="44" y="415.66666666666669" width="305" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3NH-OT-b8b">
-                                <rect key="frame" x="31" y="60" width="47" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
-                                <connections>
-                                    <action selector="dismissButtonTapped:" destination="Ned-ll-09U" eventType="touchUpInside" id="Mci-XZ-6hn"/>
-                                </connections>
-                            </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pc-7D-UcE">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="광고 화면" id="15F-cn-vSh">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="xmark" catalog="system" id="tB5-e4-ep3">
+                                            <connections>
+                                                <action selector="dismissButtonTapped:" destination="Ned-ll-09U" id="XiQ-aY-v82"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wqf-4J-tDB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wqf-4J-tDB" firstAttribute="trailing" secondItem="36C-mE-tur" secondAttribute="trailing" constant="44" id="03f-pc-3cB"/>
+                            <constraint firstItem="36C-mE-tur" firstAttribute="centerY" secondItem="nqs-5k-wWA" secondAttribute="centerY" id="U0R-Gv-RB3"/>
+                            <constraint firstItem="36C-mE-tur" firstAttribute="leading" secondItem="wqf-4J-tDB" secondAttribute="leading" constant="44" id="UoF-jA-zbE"/>
+                            <constraint firstItem="36C-mE-tur" firstAttribute="centerX" secondItem="nqs-5k-wWA" secondAttribute="centerX" id="saI-Sn-MP6"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="adTitleLabel" destination="36C-mE-tur" id="OVh-Fk-DRU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kJj-mg-J81" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2417.5572519083967" y="1658.4507042253522"/>
+            <point key="canvasLocation" x="3169" y="1658"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GzG-Ai-leH">

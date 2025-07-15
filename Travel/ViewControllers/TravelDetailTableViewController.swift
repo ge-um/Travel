@@ -57,9 +57,14 @@ class TravelDetailTableViewController: UITableViewController {
         
         if travel.ad {
             let adViewController = storyboard.instantiateViewController(identifier: "AdViewController") as! AdViewController
+            
+            adViewController.adTitle = travel.title
+            adViewController.modalPresentationStyle = .fullScreen
+            
             present(adViewController, animated: true)
         } else {
             let touristAttractionViewController = storyboard.instantiateViewController(identifier: "TouristAttractionViewController") as! TouristAttractionViewController
+            
             navigationController?.pushViewController(touristAttractionViewController, animated: true)
         }
     }
