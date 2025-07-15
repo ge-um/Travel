@@ -168,6 +168,35 @@
             </objects>
             <point key="canvasLocation" x="726" y="973"/>
         </scene>
+        <!--City Table View Controller-->
+        <scene sceneID="uhU-dr-ijR">
+            <objects>
+                <tableViewController id="2bS-7v-PbQ" customClass="CityTableViewController" customModule="Travel" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="2Hf-Rv-DWq">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5Da-oV-fwi">
+                                <rect key="frame" x="0.0" y="50" width="393" height="44.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Da-oV-fwi" id="Trp-Pn-obF">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2bS-7v-PbQ" id="6bc-nZ-xNk"/>
+                            <outlet property="delegate" destination="2bS-7v-PbQ" id="UdM-2d-2GC"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="" image="star" catalog="system" id="6xA-ff-NYm"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JOa-2R-032" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="726" y="1693"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="jBy-7v-dC5">
             <objects>
@@ -180,6 +209,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="MGx-cA-Oaf" kind="relationship" relationship="viewControllers" id="HYs-FC-TA2"/>
+                        <segue destination="2bS-7v-PbQ" kind="relationship" relationship="viewControllers" id="gqM-Jd-AC4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fne-El-Xlj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -189,6 +219,7 @@
     </scenes>
     <resources>
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
