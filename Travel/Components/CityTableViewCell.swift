@@ -51,9 +51,4 @@ class CityTableViewCell: UITableViewCell {
         cityExplainLabel.font = .systemFont(ofSize: 16, weight: .thin)
         cityExplainLabel.backgroundColor = .black.withAlphaComponent(0.5)
     }
-    
-//    func updateLabel(text: String) {
-//        cityNameLabel.asColor(targetTe: text, color: .yellow)
-//        cityExplainLabel.asColor(targetString: text, color: .yellow)
-//    }
 }
