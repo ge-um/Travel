@@ -40,14 +40,14 @@ class CityTableViewCell: UITableViewCell {
     
     func configureCityNameLabel(name: String, engName: String, searchText: String) {
         cityNameLabel.text = "\(name) | \(engName)"
-        cityNameLabel.asColor(targetText: searchText, color: .yellow)
+        cityNameLabel.highlightIgnoringCase(of: searchText, with: .yellow)
         cityNameLabel.font = .systemFont(ofSize: 24, weight: .bold)
     }
     
     func configureCityExplainLabel(explain: String, searchText: String) {
         cityExplainLabel.text = "  \(explain)"
         cityExplainLabel.textColor = .white
-        cityNameLabel.asColor(targetText: searchText, color: .yellow)
+        cityNameLabel.highlightIgnoringCase(of: searchText, with: .yellow)
         cityExplainLabel.font = .systemFont(ofSize: 16, weight: .thin)
         cityExplainLabel.backgroundColor = .black.withAlphaComponent(0.5)
     }

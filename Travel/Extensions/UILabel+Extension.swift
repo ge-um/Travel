@@ -8,10 +8,10 @@
 import UIKit
 
 extension UILabel {
-    func asColor(targetText: String, color: UIColor) {
+    func highlightIgnoringCase(of targetText: String, with color: UIColor) {
         let fullText = text ?? ""
         let attributedString = NSMutableAttributedString(string: fullText)
-        let range = (fullText as NSString).range(of: targetText)
+        let range = (fullText.lowercased() as NSString).range(of: targetText.lowercased())
         attributedString.addAttribute(.foregroundColor, value: color, range: range)
         attributedText = attributedString
     }

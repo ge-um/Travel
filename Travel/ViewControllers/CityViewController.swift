@@ -37,7 +37,6 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let city = filteredCities[indexPath.row]
         
-        // TODO: - 대소문자 구별하지 않고 색깔 변경
         cell.configure(city: city, searchText: searchTextField.text!)
         
         return cell
@@ -89,7 +88,6 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
         cityTableView.reloadData()
     }
     
-    // TODO: - 텍스트필드 터치만 했는데 느린 이유 알기
     // TODO: - Combine
     @IBAction func textFieldDidEndOnExit(_ sender: UITextField) {
         print(#function)

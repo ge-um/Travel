@@ -8,7 +8,7 @@
 import Kingfisher
 import UIKit
 
-// TODO: - Need Recatoring
+// TODO: - Need Refactoring
 class TravelDetailTableViewController: UITableViewController {
     var travel = TravelInfo.travel
     
