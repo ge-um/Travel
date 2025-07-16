@@ -36,8 +36,8 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "CityTableViewCell", for: indexPath) as! CityTableViewCell
         let city = filteredCities[indexPath.row]
         
-        cell.configure(city: city)
-        cell.updateLabel(text: searchTextField.text!)
+        cell.configure(city: city, searchText: searchTextField.text!)
+//        cell.updateLabel(text: searchTextField.text!)
         
         return cell
     }
@@ -115,7 +115,7 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
                                     
             return (loweredCityName.contains(target) || loweredCityEnglishName.contains(target) || loweredCityExplain.contains(target))
         }
-
+        
         cityTableView.reloadData()
     }
 }

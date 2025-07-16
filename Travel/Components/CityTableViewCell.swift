@@ -24,10 +24,10 @@ class CityTableViewCell: UITableViewCell {
         cityImageView.roundCorners(corners: [.topLeft, .bottomRight], radius: 30)
     }
     
-    func configure(city: City) {
+    func configure(city: City, searchText: String) {
         configureCityImageView(image: city.city_image)
-        configureCityNameLabel(name: city.city_name, engName: city.city_english_name)
-        configureCityExplainLabel(explain: city.city_explain)
+        configureCityNameLabel(name: city.city_name, engName: city.city_english_name, searchText: searchText)
+        configureCityExplainLabel(explain: city.city_explain, searchText: searchText)
     }
     
     // TODO: - Kingfisher Downsizing 찾아보기
@@ -38,20 +38,22 @@ class CityTableViewCell: UITableViewCell {
         cityImageView.contentMode = .scaleAspectFill
     }
     
-    func configureCityNameLabel(name: String, engName: String) {
+    func configureCityNameLabel(name: String, engName: String, searchText: String) {
         cityNameLabel.text = "\(name) | \(engName)"
+        cityNameLabel.asColor(targetText: searchText, color: .yellow)
         cityNameLabel.font = .systemFont(ofSize: 24, weight: .bold)
     }
     
-    func configureCityExplainLabel(explain: String) {
+    func configureCityExplainLabel(explain: String, searchText: String) {
         cityExplainLabel.text = "  \(explain)"
         cityExplainLabel.textColor = .white
+        cityNameLabel.asColor(targetText: searchText, color: .yellow)
         cityExplainLabel.font = .systemFont(ofSize: 16, weight: .thin)
         cityExplainLabel.backgroundColor = .black.withAlphaComponent(0.5)
     }
     
-    func updateLabel(text: String) {
-        cityNameLabel.asColor(targetString: text, color: .yellow)
-        cityExplainLabel.asColor(targetString: text, color: .yellow)
-    }
+//    func updateLabel(text: String) {
+//        cityNameLabel.asColor(targetTe: text, color: .yellow)
+//        cityExplainLabel.asColor(targetString: text, color: .yellow)
+//    }
 }
