@@ -40,6 +40,7 @@ class CityTableViewCell: UITableViewCell {
     
     func configureCityNameLabel(name: String, engName: String, searchText: String) {
         cityNameLabel.text = "\(name) | \(engName)"
+        cityNameLabel.textColor = .white
         cityNameLabel.highlightIgnoringCase(of: searchText, with: .yellow)
         cityNameLabel.font = .systemFont(ofSize: 24, weight: .bold)
     }
