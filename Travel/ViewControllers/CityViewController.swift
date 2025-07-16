@@ -20,14 +20,9 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         registerNib()
         configure()
-        
-        filteredCities = cities
     }
 
     func registerNib() {
-        cityTableView.delegate = self
-        cityTableView.dataSource = self
-        
         let nibName = UINib(nibName: "CityTableViewCell", bundle: nil)
         cityTableView.register(nibName, forCellReuseIdentifier: "CityTableViewCell")
     }
@@ -63,6 +58,10 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK: - Configure View
     func configure() {
+        cityTableView.delegate = self
+        cityTableView.dataSource = self
+        
+        filteredCities = cities
         configureNavigationBar()
     }
     
@@ -116,7 +115,7 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
                         
             return (loweredCityName.contains(target) || loweredCityEnglishName.contains(target) || loweredCityExplain.contains(target))
         }
-    
+
         cityTableView.reloadData()
     }
 }
