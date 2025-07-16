@@ -34,10 +34,11 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CityTableViewCell", for: indexPath) as! CityTableViewCell
+        
         let city = filteredCities[indexPath.row]
         
+        // TODO: - 대소문자 구별하지 않고 색깔 변경
         cell.configure(city: city, searchText: searchTextField.text!)
-//        cell.updateLabel(text: searchTextField.text!)
         
         return cell
     }
@@ -107,7 +108,6 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let target = text.trimmingCharacters(in: .whitespaces).lowercased()
         
-        /// 이렇게 하면 앞에 true 나오면 뒤에도 마저 도나?
         filteredCities = cities.filter {
             let loweredCityName = $0.city_name.lowercased()
             let loweredCityEnglishName =  $0.city_english_name.lowercased()
