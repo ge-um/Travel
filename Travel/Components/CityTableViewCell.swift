@@ -30,7 +30,7 @@ class CityTableViewCell: UITableViewCell {
         configureCityExplainLabel(explain: city.city_explain, searchText: searchText)
     }
     
-    // TODO: - Kingfisher Downsizing 찾아보기
+    // TODO: - Kingfisher Downsampling 찾아보기
     // TODO: - 그림자 적용하기
     func configureCityImageView(image: String) {
         let url = URL(string: image)
