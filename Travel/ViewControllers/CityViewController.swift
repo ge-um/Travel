@@ -42,9 +42,8 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
 
-    // TODO: - Automatic Dimension 적용해보기
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
+        return UITableView.automaticDimension
     }
     
     // TODO: - 백버튼 글씨 없애기
