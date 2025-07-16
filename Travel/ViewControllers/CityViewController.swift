@@ -7,13 +7,15 @@
 
 import UIKit
 
-class CityTableViewController: UITableViewController {
+class CityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var locationSegmentedControl: UISegmentedControl!
     @IBOutlet var searchTextField: UITextField!
+    @IBOutlet var cityTableView: UITableView!
     
     let cities = CityInfo.city
     var filteredCities: [City] = []
-
+    
+    //TODO: - 섹션 전환했을 때도 텍스트가 남아있다면 섹션에 맞는 데이터가 filter되도록 만들기.
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNib()
@@ -23,16 +25,19 @@ class CityTableViewController: UITableViewController {
     }
 
     func registerNib() {
+        cityTableView.delegate = self
+        cityTableView.dataSource = self
+        
         let nibName = UINib(nibName: "CityTableViewCell", bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: "CityTableViewCell")
+        cityTableView.register(nibName, forCellReuseIdentifier: "CityTableViewCell")
     }
     
     // MARK: - TableView Setting
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredCities.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CityTableViewCell", for: indexPath) as! CityTableViewCell
         let city = filteredCities[indexPath.row]
         
@@ -42,7 +47,7 @@ class CityTableViewController: UITableViewController {
     }
 
     // MARK: - Automatic Dimension 적용해보기
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 180
     }
     
@@ -70,7 +75,7 @@ class CityTableViewController: UITableViewController {
         default: break
         }
         
-        tableView.reloadData()
+        cityTableView.reloadData()
     }
     
     // TODO: - 대소문자 구별
@@ -80,10 +85,11 @@ class CityTableViewController: UITableViewController {
     @IBAction func textFieldDidEndOnExit(_ sender: UITextField) {
         let target = searchTextField.text!.trimmingCharacters(in: .whitespaces)
         
+        /// 이렇게 하면 앞에 true 나오면 뒤에도 마저 도나?
         filteredCities = filteredCities.filter {
             return ($0.city_name.contains(target) || $0.city_english_name.contains(target) || $0.city_explain.contains(target))
         }
         
-        tableView.reloadData()
+        cityTableView.reloadData()
     }
 }

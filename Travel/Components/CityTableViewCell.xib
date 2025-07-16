@@ -17,19 +17,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qMn-3L-amG">
-                        <rect key="frame" x="12" y="12" width="384" height="160"/>
+                        <rect key="frame" x="0.0" y="0.0" width="408" height="160"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="160" id="Ljr-HF-MY3"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHn-WO-akW">
-                        <rect key="frame" x="346" y="24" width="42" height="21"/>
+                        <rect key="frame" x="358" y="12" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2b-XJ-rYC">
-                        <rect key="frame" x="12" y="140" width="384" height="32"/>
+                        <rect key="frame" x="0.0" y="128" width="408" height="32"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -38,12 +38,12 @@
                 <constraints>
                     <constraint firstItem="J2b-XJ-rYC" firstAttribute="leading" secondItem="qMn-3L-amG" secondAttribute="leading" id="87t-ZE-zOj"/>
                     <constraint firstItem="J2b-XJ-rYC" firstAttribute="bottom" secondItem="qMn-3L-amG" secondAttribute="bottom" id="DMw-vc-tfL"/>
-                    <constraint firstItem="qMn-3L-amG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="H5v-gt-wQu"/>
+                    <constraint firstItem="qMn-3L-amG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="H5v-gt-wQu"/>
                     <constraint firstItem="J2b-XJ-rYC" firstAttribute="width" secondItem="qMn-3L-amG" secondAttribute="width" id="J3h-18-ILv"/>
                     <constraint firstItem="jHn-WO-akW" firstAttribute="trailing" secondItem="qMn-3L-amG" secondAttribute="trailing" constant="-8" id="PR9-HY-iHY"/>
                     <constraint firstItem="J2b-XJ-rYC" firstAttribute="height" secondItem="qMn-3L-amG" secondAttribute="height" multiplier="0.2" id="Piy-BO-XJz"/>
-                    <constraint firstAttribute="trailing" secondItem="qMn-3L-amG" secondAttribute="trailing" constant="12" id="f1c-rj-EGU"/>
-                    <constraint firstItem="qMn-3L-amG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="gy4-Hl-m9x"/>
+                    <constraint firstAttribute="trailing" secondItem="qMn-3L-amG" secondAttribute="trailing" id="f1c-rj-EGU"/>
+                    <constraint firstItem="qMn-3L-amG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="gy4-Hl-m9x"/>
                     <constraint firstItem="jHn-WO-akW" firstAttribute="top" secondItem="qMn-3L-amG" secondAttribute="top" constant="12" id="yIu-pP-zZr"/>
                 </constraints>
             </tableViewCellContentView>
