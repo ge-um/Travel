@@ -30,6 +30,7 @@ class CityTableViewCell: UITableViewCell {
     }
     
     // TODO: - Kingfisher Downsizing 찾아보기
+    // TODO: - 그림자 적용하기
     func configureCityImageView(image: String) {
         let url = URL(string: image)
         cityImageView.kf.setImage(with: url)

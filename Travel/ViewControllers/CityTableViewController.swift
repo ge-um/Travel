@@ -76,6 +76,7 @@ class CityTableViewController: UITableViewController {
     // TODO: - 대소문자 구별
     // TODO: - 검색 키워드에 해당하는 글자 색상 변경
     // TODO: - 실시간 검색 기능 구현하기
+    // TODO: - 필터 성능 향상
     @IBAction func textFieldDidEndOnExit(_ sender: UITextField) {
         let target = searchTextField.text!.trimmingCharacters(in: .whitespaces)
         
