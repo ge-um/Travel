@@ -274,6 +274,39 @@
             </objects>
             <point key="canvasLocation" x="1563" y="1693"/>
         </scene>
+        <!--도시 상세 정보-->
+        <scene sceneID="h7j-gm-38H">
+            <objects>
+                <viewController storyboardIdentifier="CityDetailViewController" id="f2X-IJ-Kl2" customClass="CityDetailViewController" customModule="Travel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZZf-Cq-sJ3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMC-eb-gpu">
+                                <rect key="frame" x="12" y="71" width="369" height="735"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aXm-ed-0do"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bMC-eb-gpu" firstAttribute="top" secondItem="aXm-ed-0do" secondAttribute="top" constant="12" id="ECr-Ef-EoL"/>
+                            <constraint firstItem="aXm-ed-0do" firstAttribute="bottom" secondItem="bMC-eb-gpu" secondAttribute="bottom" constant="12" id="HFb-LH-fMc"/>
+                            <constraint firstItem="bMC-eb-gpu" firstAttribute="leading" secondItem="aXm-ed-0do" secondAttribute="leading" constant="12" id="joP-0d-EIW"/>
+                            <constraint firstItem="aXm-ed-0do" firstAttribute="trailing" secondItem="bMC-eb-gpu" secondAttribute="trailing" constant="12" id="zhP-Ny-yte"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="도시 상세 정보" id="Rf2-BC-MMI"/>
+                    <connections>
+                        <outlet property="detailInfoLabel" destination="bMC-eb-gpu" id="cpg-fx-clj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tOg-wq-s98" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2389" y="1693"/>
+        </scene>
     </scenes>
     <resources>
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>

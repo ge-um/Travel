@@ -46,9 +46,19 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
 
-    // MARK: - Automatic Dimension 적용해보기
+    // TODO: - Automatic Dimension 적용해보기
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 180
+    }
+    
+    // TODO: - 백버튼 글씨 없애기
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "CityDetailViewController") as! CityDetailViewController
+        
+        vc.title = "도시 상세 화면"
+        vc.city = cities[indexPath.row]
+
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - Configure View
