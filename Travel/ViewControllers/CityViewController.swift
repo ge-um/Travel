@@ -88,18 +88,33 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
         cityTableView.reloadData()
     }
     
+    // TODO: - 텍스트필드 터치만 했는데 느린 이유 알기
+    // TODO: - Combine
     // TODO: - 대소문자 구별
     // TODO: - 검색 키워드에 해당하는 글자 색상 변경
     // TODO: - 실시간 검색 기능 구현하기
     // TODO: - 필터 성능 향상
     @IBAction func textFieldDidEndOnExit(_ sender: UITextField) {
-        let target = searchTextField.text!.trimmingCharacters(in: .whitespaces)
+        print(#function)
+        search(text: sender.text!)
+    }
+    
+    @IBAction func searchTextChanged(_ sender: UITextField) {
+        print(#function)
+        search(text: sender.text!)
+    }
+    
+    //MARK: - Logic
+    func search(text: String) {
+        print(#function, text)
+        
+        let target = text.trimmingCharacters(in: .whitespaces)
         
         /// 이렇게 하면 앞에 true 나오면 뒤에도 마저 도나?
-        filteredCities = filteredCities.filter {
+        filteredCities = cities.filter {
             return ($0.city_name.contains(target) || $0.city_english_name.contains(target) || $0.city_explain.contains(target))
         }
-        
+                
         cityTableView.reloadData()
     }
 }

@@ -225,6 +225,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
+                                            <action selector="searchTextChanged:" destination="ZZl-cu-Scf" eventType="editingChanged" id="YTT-8q-FPe"/>
                                             <action selector="textFieldDidEndOnExit:" destination="ZZl-cu-Scf" eventType="editingDidEndOnExit" id="hIn-Yj-0V4"/>
                                         </connections>
                                     </textField>
