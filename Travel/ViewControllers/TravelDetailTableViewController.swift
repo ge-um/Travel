@@ -145,7 +145,7 @@ class TravelDetailTableViewController: UITableViewController {
         return attributedText
     }
     
-    //MARK: - Action
+    // MARK: - Action
     @objc func likeButtonTapped(sender: UIButton) {
         let index = sender.tag
         travel[index].like?.toggle()

@@ -18,6 +18,7 @@ class CityTableViewCell: UITableViewCell {
     }
     
     // TODO: - background color clip하기
+    // MARK: - Layout
     override func layoutSubviews() {
         super.layoutSubviews()
         cityImageView.roundCorners(corners: [.topLeft, .bottomRight], radius: 30)
@@ -39,7 +40,6 @@ class CityTableViewCell: UITableViewCell {
     
     func configureCityNameLabel(name: String, engName: String) {
         cityNameLabel.text = "\(name) | \(engName)"
-        cityNameLabel.textColor = .white
         cityNameLabel.font = .systemFont(ofSize: 24, weight: .bold)
     }
     
@@ -48,5 +48,10 @@ class CityTableViewCell: UITableViewCell {
         cityExplainLabel.textColor = .white
         cityExplainLabel.font = .systemFont(ofSize: 16, weight: .thin)
         cityExplainLabel.backgroundColor = .black.withAlphaComponent(0.5)
+    }
+    
+    func updateLabel(text: String) {
+        cityNameLabel.asColor(targetString: text, color: .yellow)
+        cityExplainLabel.asColor(targetString: text, color: .yellow)
     }
 }

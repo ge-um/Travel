@@ -37,6 +37,7 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
         let city = filteredCities[indexPath.row]
         
         cell.configure(city: city)
+        cell.updateLabel(text: searchTextField.text!)
         
         return cell
     }
@@ -89,7 +90,6 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // TODO: - 텍스트필드 터치만 했는데 느린 이유 알기
     // TODO: - Combine
-    // TODO: - 검색 키워드에 해당하는 글자 색상 변경
     @IBAction func textFieldDidEndOnExit(_ sender: UITextField) {
         print(#function)
         search(text: sender.text!)
@@ -112,7 +112,7 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
             let loweredCityName = $0.city_name.lowercased()
             let loweredCityEnglishName =  $0.city_english_name.lowercased()
             let loweredCityExplain = $0.city_explain.lowercased()
-                        
+                                    
             return (loweredCityName.contains(target) || loweredCityEnglishName.contains(target) || loweredCityExplain.contains(target))
         }
 
