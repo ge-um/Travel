@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -243,15 +244,33 @@
                                             <action selector="segmentedControlValueChanged:" destination="ZZl-cu-Scf" eventType="valueChanged" id="yhV-CC-ZD5"/>
                                         </connections>
                                     </segmentedControl>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TWz-CW-yR8">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CaX-Pf-Blz">
                                         <rect key="frame" x="0.0" y="124" width="369" height="530"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </tableView>
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cwd-3T-avb">
+                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="tLN-7k-NhY">
+                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ckz-HS-ydZ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionViewCellContentView>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="maf-yc-uFg" firstAttribute="width" secondItem="Orh-N0-HqA" secondAttribute="width" id="ClU-Dy-Mca"/>
-                                    <constraint firstItem="TWz-CW-yR8" firstAttribute="width" secondItem="Orh-N0-HqA" secondAttribute="width" id="Kvp-fp-W7H"/>
+                                    <constraint firstAttribute="bottom" secondItem="CaX-Pf-Blz" secondAttribute="bottom" id="HDa-ua-dpX"/>
+                                    <constraint firstItem="CaX-Pf-Blz" firstAttribute="leading" secondItem="Orh-N0-HqA" secondAttribute="leading" id="M7F-zw-HBT"/>
                                     <constraint firstItem="a8n-7g-5tD" firstAttribute="width" secondItem="Orh-N0-HqA" secondAttribute="width" id="S6C-jY-kjI"/>
+                                    <constraint firstAttribute="trailing" secondItem="CaX-Pf-Blz" secondAttribute="trailing" id="n8J-un-bsV"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -266,7 +285,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="인기 도시" id="bTK-bM-RvI"/>
                     <connections>
-                        <outlet property="cityTableView" destination="TWz-CW-yR8" id="kT4-tI-BkS"/>
+                        <outlet property="cityCollectionView" destination="CaX-Pf-Blz" id="EY8-st-mwJ"/>
                         <outlet property="locationSegmentedControl" destination="maf-yc-uFg" id="qHI-wa-zcX"/>
                         <outlet property="searchTextField" destination="a8n-7g-5tD" id="Thd-3F-a2Y"/>
                     </connections>

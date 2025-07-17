@@ -7,10 +7,10 @@
 
 import UIKit
 
-class CityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CityViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet var locationSegmentedControl: UISegmentedControl!
     @IBOutlet var searchTextField: UITextField!
-    @IBOutlet var cityTableView: UITableView!
+    @IBOutlet var cityCollectionView: UICollectionView!
     
     let cities = CityInfo.city
     var filteredCities: [City] = []
@@ -23,46 +23,18 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func registerNib() {
-        let nibName = UINib(nibName: "CityTableViewCell", bundle: nil)
-        cityTableView.register(nibName, forCellReuseIdentifier: "CityTableViewCell")
-    }
-    
-    // MARK: - TableView Setting
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredCities.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CityTableViewCell", for: indexPath) as! CityTableViewCell
-        
-        let city = filteredCities[indexPath.row]
-        
-        cell.configure(city: city, searchText: searchTextField.text!)
-        
-        return cell
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    // TODO: - 백버튼 글씨 없애기
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "CityDetailViewController") as! CityDetailViewController
-        
-        vc.title = "도시 상세 화면"
-        vc.city = cities[indexPath.row]
-
-        navigationController?.pushViewController(vc, animated: true)
+        let nibName = UINib(nibName: "CityCollectionViewCell", bundle: nil)
+        cityCollectionView.register(nibName, forCellWithReuseIdentifier: "CityCollectionViewCell")
     }
     
     // MARK: - Configure View
     func configure() {
-        cityTableView.delegate = self
-        cityTableView.dataSource = self
+        cityCollectionView.delegate = self
+        cityCollectionView.dataSource = self
         
         filteredCities = cities
         configureNavigationBar()
+        configureLayout()
     }
     
     // TODO: - navigationBar 전체의 apperance를 환경 설정으로 둘 수 있는지 알아보기
@@ -75,6 +47,17 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
         navigationItem.title = "관광지 화면"
     }
     
+    func configureLayout() {
+        let layout = UICollectionViewFlowLayout()
+        let deviceWidth = UIScreen.main.bounds.width
+        let cellWidth = deviceWidth - (2 * 12) - 16
+        
+        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: cellWidth / 2, height: cellWidth / 2 + 72)
+        
+        cityCollectionView.collectionViewLayout = layout
+    }
+    
     // MARK: - Action
     @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
@@ -84,7 +67,7 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
         default: break
         }
         
-        cityTableView.reloadData()
+        cityCollectionView.reloadData()
     }
     
     // TODO: - Combine
@@ -113,6 +96,21 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
             return (loweredCityName.contains(target) || loweredCityEnglishName.contains(target) || loweredCityExplain.contains(target))
         }
         
-        cityTableView.reloadData()
+        cityCollectionView.reloadData()
+    }
+    
+    // MARK: - CollectionView Setting
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return filteredCities.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = cityCollectionView.dequeueReusableCell(withReuseIdentifier: "CityCollectionViewCell", for: indexPath) as! CityCollectionViewCell
+        
+        let city = filteredCities[indexPath.row]
+        cell.configure(with: city)
+        
+        return cell
     }
 }
